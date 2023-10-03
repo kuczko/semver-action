@@ -66,6 +66,9 @@ These are the prefixes we expect when `auto` bump:
 
 - `GITHUB_SHA`
 
+## Changes
+Trying to fix ```• git result                stderr=fatal: detected dubious ownership in repository at '/github/workspace' error.```
+
 ## Example usage
 
 ### Basic
