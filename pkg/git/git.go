@@ -80,7 +80,11 @@ func (c *Client) Run(args ...string) (string, error) {
 
 // IsRepo returns true if current folder is a git repository.
 func (c *Client) IsRepo() bool {
-        c.Run("config","--global","--add","safe.directory","/github/workspace")
+        out1, err1 := c.Run("config","--global","--add","safe.directory","/github/workspace")
+        if err1 != nil {
+          fmt.Println("Error")
+        }
+        fmt.Println(out1)
 	out, err := c.Run("rev-parse", "--is-inside-work-tree")
 	return err == nil && strings.TrimSpace(out) == "true"
 }
