@@ -1,22 +1,10 @@
-FROM golang:1.21-alpine
+FROM alpine:latest
+LABEL "repository"="https://github.com/kuczko/semver-action"
+LABEL "homepage"="https://github.com/kuczko/semver-action"
+LABEL "maintainer"="Mateusz Kaminski"
 
-RUN apk add --update --no-cache \
-    make \
-    git \
-    curl
+RUN apk --no-cache add bash git 
 
-WORKDIR /go/src/github.com/gandarez/semver-action
+COPY entrypoint.sh /entrypoint.sh
 
-COPY . .
-
-# build
-RUN make build-linux
-
-# apply permissions
-RUN chmod a+x ./build/linux/amd64/semver
-
-# symbolic link
-RUN ln -s /go/src/github.com/gandarez/semver-action/build/linux/amd64/semver /bin/
-
-# Specify the container's entrypoint as the action
-ENTRYPOINT ["/bin/semver"]
+ENTRYPOINT ["/entrypoint.sh"]
