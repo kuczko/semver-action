@@ -75,6 +75,9 @@ calculateMainMinorTag() {
   NEW_FIX=0
 }
 
+# Github runners require directory to be marked as safe
+git config --global --add safe.directory /github/workspace
+
 # First check if i am in main of develop branch
 MY_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
@@ -110,6 +113,7 @@ elif  [[ "$TARGET" == "${develop_branch_name}" ]]; then
   NEW_TAG=$NEW_MAJOR.$NEW_MINOR.$NEW_FIX-pre.$NEW_NUMBER
   CURRENT_TAG=$PRE_TAG
 fi
+
 debugmsg "New tag $NEW_TAG"
 debugmsg "Current tag $CURRENT_TAG"
 setOutput NEW_TAG $NEW_TAG
