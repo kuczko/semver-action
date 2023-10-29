@@ -3,16 +3,8 @@
 set -eo pipefail
 
 
-# Testing
-GITHUB_REF_NAME='feature/testing'
-#GITHUB_REF_NAME='main'
-main_branch_name='main'
-develop_branch_name='feature/testing'
-DEBUG=true
-GITHUB_OUTPUT=githubenvfile
-
 debugmsg() {
-  if [[ $DEBUG == "true" ]]; then
+  if [[ $debug == "true" ]]; then
      echo $1
   fi
 }
