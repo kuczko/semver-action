@@ -2,11 +2,16 @@
 
 set -eo pipefail
 
+
 main_branch_name=$1
 develop_branch_name=$2
 repo_dir=$3
 debug=$4
-echo "DEBUG: $debug"
+
+if [[ $debug == "true" ]]; then
+  set -x
+fi
+
 
 debugmsg() {
   if [[ $debug == "true" ]]; then
