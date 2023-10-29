@@ -90,7 +90,7 @@ if [[ "$MY_BRANCH" != "$TARGET" ]]; then
 fi
 
 if [[ "$TARGET" == "${main_branch_name}" ]]; then
-  if [[ "$SOURCE" == "develop" ]]; then
+  if [[ "$SOURCE" == "${develop_branch_name}" ]]; then
     debugmsg "From develop"
     calculateMainMinorTag
   elif [[ "$SOURCE" =~ ^(bugfix|hotfix)/ ]]; then
