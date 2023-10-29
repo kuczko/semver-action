@@ -2,6 +2,11 @@
 
 set -eo pipefail
 
+echo "DEBUG: $debug"
+echo "main: $main_branch_name"
+echo "Develop: $develop_branch_name"
+debug='true'
+
 
 debugmsg() {
   if [[ $debug == "true" ]]; then
