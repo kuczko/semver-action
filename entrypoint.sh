@@ -2,11 +2,11 @@
 
 set -eo pipefail
 
+main_branch_name=$1
+develop_branch_name=$2
+repo_dir=$3
+debug=$4
 echo "DEBUG: $debug"
-echo "main: $main_branch_name"
-echo "Develop: $develop_branch_name"
-debug='true'
-
 
 debugmsg() {
   if [[ $debug == "true" ]]; then

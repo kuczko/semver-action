@@ -5,23 +5,23 @@ branding:
   color: purple
   icon: tag
 
-#inputs:
-#  main_branch_name:
-#    description: 'The main branch name'
-#    default: 'master'
-#    required: false
-#  develop_branch_name:
-#    description: 'The develop branch name'
-#    default: 'develop'
-#    required: false
-#  repo_dir:
-#    description: 'The repository path'
-#    default: '.'
-#    required: false
-#  debug:
-#    description: 'Enables debug mode'
-#    default: 'false'
-#    required: false
+inputs:
+  main_branch_name:
+    description: 'The main branch name'
+    default: 'master'
+    required: false
+  develop_branch_name:
+    description: 'The develop branch name'
+    default: 'develop'
+    required: false
+  repo_dir:
+    description: 'The repository path'
+    default: '.'
+    required: false
+  debug:
+    description: 'Enables debug mode'
+    default: 'false'
+    required: false
     
 outputs:
   semver_tag:
