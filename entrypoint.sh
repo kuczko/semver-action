@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#tset -eo pipefail
+set -eo pipefail
 
 
 main_branch_name=$1
