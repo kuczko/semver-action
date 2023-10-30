@@ -102,6 +102,8 @@ if [[ "$MY_BRANCH" != "$TARGET" ]]; then
   exit 2
 fi
 
+IS_PRERELEASE=false
+
 if [[ "$TARGET" == "${main_branch_name}" ]]; then
   if [[ "$SOURCE" == "${develop_branch_name}" ]]; then
     debugmsg "From develop"
@@ -118,6 +120,7 @@ if [[ "$TARGET" == "${main_branch_name}" ]]; then
   debugmsg "New stable tag $NEW_TAG"
 # In develop branch, we always increase number 
 elif  [[ "$TARGET" == "${develop_branch_name}" ]]; then
+  IS_PRERELEASE=true
   debugmsg "In develop"
   calculateDevelopTag
   NEW_TAG=$NEW_MAJOR.$NEW_MINOR.$NEW_FIX-pre.$NEW_NUMBER
@@ -126,5 +129,6 @@ fi
 
 debugmsg "New tag $NEW_TAG"
 debugmsg "Current tag $CURRENT_TAG"
-setOutput NEW_TAG $NEW_TAG
-setOutput CURRENT_TAG $CURRENT_TAG
+setOutput new_tag $NEW_TAG
+setOutput current_tag $CURRENT_TAG
+setOutput is_prerelease $IS_PRERELEASE

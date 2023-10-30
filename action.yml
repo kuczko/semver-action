@@ -24,11 +24,11 @@ inputs:
     required: false
     
 outputs:
-  semver_tag:
+  new_tag:
     description: 'The calculdated semantic version'
-  is_prerelease:
+  current_tag:
     description: 'True if calculated tag is pre-release'
-  previous_tag:
+  is_prerelease:
     description: 'The tag used to calculate next semantic version'
 
 runs:
