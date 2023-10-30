@@ -89,7 +89,7 @@ calculateMainMinorTag() {
 git config --global --add safe.directory /github/workspace
 
 # First check if i am in main of develop branch
-MY_BRANCH=`git rev-parse --abbrev-ref HEAD`
+MY_BRANCH=`git rev-parse --abbrev-ref HEAD| sed 's/^heads\///'`
 
 getMergeBranches
 getCurrentTags
