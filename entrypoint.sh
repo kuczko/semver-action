@@ -55,15 +55,16 @@ calculateDevelopTag() {
     let "NEW_MINOR=STABLE_MINOR+1"
     NEW_FIX=0
     NEW_NUMBER=0
-  elif [[ $STABLE_MINOR -gt $PRE_MINOR ]]; then
+  elif [[ $STABLE_MINOR -gt $PRE_MINOR ]] && [[ $STABLE_MAJOR -eq $PRE_MAJOR ]]; then
     NEW_MAJOR=$PRE_MAJOR
     let "NEW_MINOR=STABLE_MINOR+1"
     NEW_FIX=0
     NEW_NUMBER=0
-  elif [[ $STABLE_FIX -gt $PRE_FIX ]]; then
+  elif [[ $STABLE_FIX -gt $PRE_FIX ]] && [[ $STABLE_MAJOR -eq $PRE_MAJOR ]] && [[ $STABLE_MINOR -eq $PRE_MINOR ]]; then
     NEW_MAJOR=$PRE_MAJOR
+    NEW_MINOR==$PRE_MINOR
     let "NEW_MINOR=STABLE_MINOR+1"
-    NEW_FIX=0
+    NEW_MINOR=0
     NEW_NUMBER=0
   else
     NEW_MAJOR=$PRE_MAJOR
