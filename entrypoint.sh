@@ -18,7 +18,7 @@ debugmsg() {
 }
 
 setOutput() {
-    echo "${1}=${2}" >> "${GITHUB_OUTPUT}"
+  echo "${1}=${2}" >> "${GITHUB_OUTPUT}"
 }
 
 getCurrentTags() {
@@ -68,7 +68,7 @@ calculateDevelopTag() {
     NEW_MAJOR="$PRE_MAJOR"
     NEW_MINOR="$PRE_MINOR"
     NEW_MINOR=$(( STABLE_MINOR + 1 ))
-    NEW_MINOR=0
+    NEW_FIX=0
     NEW_NUMBER=0
 
   else
